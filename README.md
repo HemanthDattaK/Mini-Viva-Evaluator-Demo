@@ -83,7 +83,7 @@ Go to [http://127.0.0.1:5000](http://127.0.0.1:5000) to see the Mini Viva Evalua
 ```
 mini-viva-evaluator/
 │
-├─ mini_viva_local.py      # Main Flask app
+├─ app.py      # Main Flask app
 ├─ evaluator.py            # NLP evaluation pipeline
 ├─ templates/
 │   └─ index.html          # Web interface template
