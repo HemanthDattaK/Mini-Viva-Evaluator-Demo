@@ -34,7 +34,7 @@ A web-based application that evaluates short text answers against a reference an
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone <your-github-repo-link>
+git clone https://github.com/HemanthDattaK/Mini-Viva-Evaluator-Demo
 cd mini-viva-evaluator
 ```
 
