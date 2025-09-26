@@ -1,69 +1,86 @@
-📝 Mini Viva Evaluator Demo
 
-A web-based application that evaluates short text answers against a reference answer using HuggingFace NLP models. It provides a score (0–5), feedback, and similarity percentage based on semantic similarity and key concept coverage.
 
-🎯 Objective
+# 📝 Mini Viva Evaluator Demo
 
-Input: Short text answer (typed; no audio support yet)
+A web-based application that evaluates short text answers against a reference answer using **HuggingFace NLP models**. It provides a **score (0–5)**, **feedback**, and **similarity percentage** based on semantic similarity and key concept coverage.
 
-Logic: Use NLP embeddings to evaluate student answers against reference answers
+---
 
-Output:
+## 🎯 Objective
 
-Score: 0–5
+* Input: Short text answer (typed; no audio support yet)
+* Logic: Use NLP embeddings to evaluate student answers against reference answers
+* Output:
 
-Feedback: Short textual feedback explaining the score
+  * **Score:** 0–5
+  * **Feedback:** Short textual feedback explaining the score
+  * **Similarity:** Percentage similarity
 
-Similarity: Percentage similarity
+---
 
-💻 Features
+## 💻 Features
 
-Semantic similarity scoring using sentence-transformers
+* Semantic similarity scoring using `sentence-transformers`
+* Coverage of key concepts (Supervised vs. Unsupervised, Labeled vs. Unlabeled, Examples like Classification, Regression, Clustering)
+* Completeness check
+* Accuracy / Correctness hints
+* Brevity vs. detail consideration
+* Simple, clean web interface
 
-Coverage of key concepts (Supervised vs. Unsupervised, Labeled vs. Unlabeled, Examples like Classification, Regression, Clustering)
+---
 
-Completeness check
+## ⚙️ Setup Instructions
 
-Accuracy / Correctness hints
+### 1️⃣ Clone the repository
 
-Brevity vs. detail consideration
-
-Simple, clean web interface
-
-⚙️ Setup Instructions
-1️⃣ Clone the repository
+```bash
 git clone <your-github-repo-link>
 cd mini-viva-evaluator
+```
 
-2️⃣ Create a virtual environment (recommended)
+### 2️⃣ Create a virtual environment (recommended)
+
+```bash
 python -m venv venv
+```
 
-3️⃣ Activate the virtual environment
+### 3️⃣ Activate the virtual environment
 
-Windows
+* **Windows**
 
+```bash
 venv\Scripts\activate
+```
 
+* **Linux / macOS**
 
-Linux / macOS
-
+```bash
 source venv/bin/activate
+```
 
-4️⃣ Install required packages
+### 4️⃣ Install required packages
+
+```bash
 pip install -r requirements.txt
+```
 
+> ⚠️ Installing `torch` and `sentence-transformers` may take a few minutes depending on your internet speed.
 
-⚠️ Installing torch and sentence-transformers may take a few minutes depending on your internet speed.
+### 5️⃣ Run the application
 
-5️⃣ Run the application
+```bash
 python mini_viva_local.py
+```
 
-6️⃣ Open in browser
+### 6️⃣ Open in browser
 
-Go to http://127.0.0.1:5000
- to see the Mini Viva Evaluator interface.
+Go to [http://127.0.0.1:5000](http://127.0.0.1:5000) to see the Mini Viva Evaluator interface.
 
-🗂 File Structure
+---
+
+## 🗂 File Structure
+
+```
 mini-viva-evaluator/
 │
 ├─ mini_viva_local.py      # Main Flask app
@@ -74,25 +91,25 @@ mini-viva-evaluator/
 │   └─ style.css           # Custom styles
 ├─ requirements.txt        # Python dependencies
 └─ README.md               # Project documentation
+```
 
-🧰 Technologies Used
+---
 
-Python 3.x
+## 🧰 Technologies Used
 
-Flask – Web framework
+* **Python 3.x**
+* **Flask** – Web framework
+* **HuggingFace / sentence-transformers** – NLP embeddings
+* **NumPy & Scikit-learn** – Similarity computation
 
-HuggingFace / sentence-transformers – NLP embeddings
+---
 
-NumPy & Scikit-learn – Similarity computation
+## 📝 Usage
 
-📝 Usage
+1. Open the web page
+2. Enter **Reference Answer** (optional, can leave blank)
+3. Enter **Student Answer**
+4. Click **Submit**
+5. View **Score**, **Feedback**, and **Similarity** below
 
-Open the web page
-
-Enter Reference Answer (optional, can leave blank)
-
-Enter Student Answer
-
-Click Submit
-
-View Score, Feedback, and Similarity below
+to do that next?
