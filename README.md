@@ -111,5 +111,3 @@ mini-viva-evaluator/
 3. Enter **Student Answer**
 4. Click **Submit**
 5. View **Score**, **Feedback**, and **Similarity** below
-
-to do that next?
