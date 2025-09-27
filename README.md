@@ -1,8 +1,7 @@
 
-
 # 📝 Mini Viva Evaluator Demo
 
-A web-based application that evaluates short text answers against a reference answer using Hugging Face NLP models. It provides a **score (0–5)**, **feedback**, and **similarity percentage** based on semantic similarity and key concept coverage.
+A web-based application that evaluates short text answers against a reference answer using Hugging Face NLP models. It provides a score (0–5), feedback, and similarity percentage based on semantic similarity and key concept coverage.
 
 ---
 
@@ -21,7 +20,7 @@ A web-based application that evaluates short text answers against a reference an
 ## 💻 Features
 
 * Semantic similarity scoring using `sentence-transformers`
-* Key concept coverage (Supervised vs. Unsupervised, Labeled vs. Unlabeled, Examples like Classification, Regression, Clustering)
+* Coverage of key concepts
 * Completeness check
 * Accuracy / Correctness hints
 * Brevity vs. detail consideration
@@ -46,13 +45,13 @@ python -m venv venv
 
 3️⃣ **Activate the virtual environment**
 
-**Windows**
+* **Windows:**
 
 ```bash
 venv\Scripts\activate
 ```
 
-**Linux / macOS**
+* **Linux / macOS:**
 
 ```bash
 source venv/bin/activate
@@ -64,16 +63,37 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-⚠️ Installing `torch` and `sentence-transformers` may take a few minutes depending on your internet speed.
+> ⚠️ Installing `torch` and `sentence-transformers` may take a few minutes depending on your internet speed.
 
-5️⃣ **Run the application**
+5️⃣ **Set Hugging Face token**
+
+> Important: To run the project, you need a Hugging Face token. Do **not** hardcode your token.
+
+* Go to [Hugging Face Tokens](https://huggingface.co/settings/tokens)
+* Create a new token with **Read** role
+* Set it as an environment variable:
+
+```bash
+# Windows
+set HF_API_TOKEN=<your_token_here>
+
+# Linux/macOS
+export HF_API_TOKEN=<your_token_here>
+```
+
+Or create a `.env` file in the project root:
+
+```
+HF_API_TOKEN=<your_token_here>
+```
+
+6️⃣ **Run the application**
 
 ```bash
 python app.py
 ```
 
-6️⃣ **Open in browser**
-
+7️⃣ **Open in browser**
 Go to [http://127.0.0.1:5000](http://127.0.0.1:5000) to see the Mini Viva Evaluator interface.
 
 ---
@@ -83,24 +103,24 @@ Go to [http://127.0.0.1:5000](http://127.0.0.1:5000) to see the Mini Viva Evalua
 ```
 mini-viva-evaluator/
 │
-├─ app.py                # Main Flask app
-├─ evaluator.py          # NLP evaluation pipeline
+├─ app.py             # Main Flask app
+├─ evaluator.py       # NLP evaluation pipeline (uses HF token from env)
 ├─ templates/
-│   └─ index.html        # Web interface template
+│   └─ index.html     # Web interface template
 ├─ static/
-│   └─ style.css         # Custom styles
-├─ requirements.txt      # Python dependencies
-└─ README.md             # Project documentation
+│   └─ style.css      # Custom styles
+├─ requirements.txt   # Python dependencies
+└─ README.md          # Project documentation
 ```
 
 ---
 
 ## 🧰 Technologies Used
 
-* **Python 3.x**
-* **Flask** – Web framework
-* **Hugging Face / sentence-transformers** – NLP embeddings
-* **NumPy & Scikit-learn** – Similarity computation
+* Python 3.x
+* Flask – Web framework
+* Hugging Face / sentence-transformers – NLP embeddings
+* NumPy & Scikit-learn – Similarity computation
 
 ---
 
