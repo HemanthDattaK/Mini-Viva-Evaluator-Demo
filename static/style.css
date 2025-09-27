@@ -1,52 +1,147 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
+/* style.css — clean, professional styles for Mini Viva Evaluator */
+
+/* Page layout */
+:root{
+  --bg:#f7f9fc;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#2563eb;
+  --success:#16a34a;
+  --danger:#ef4444;
+  --soft:#eef2ff;
+  --max-width:900px;
+  --radius:10px;
 }
 
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif; background:var(--bg); color:#111827; }
+
+/* Center card */
 .container {
-    max-width: 700px;
-    margin: auto;
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: var(--max-width);
+  margin: 36px auto;
+  padding: 18px;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
+/* Card */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 30px rgba(16,24,40,0.06);
+  padding: 22px;
+  border: 1px solid rgba(15,23,42,0.03);
 }
 
-textarea {
-    width: 75%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    resize: none;
+/* Header */
+.header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom: 12px;
+}
+.header h1 {
+  font-size:1.25rem;
+  margin:0;
+  font-weight:600;
+  color:#0f172a;
+}
+.header p {
+  margin:0;
+  color:var(--muted);
+  font-size:0.9rem;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
+/* Form */
+.form-row { display:flex; flex-direction:column; gap:8px; margin-bottom:12px; }
+label {
+  font-size:0.92rem;
+  color:#0f172a;
+  font-weight:600;
+}
+textarea, input[type="text"]{
+  width:100%;
+  min-height:96px;
+  resize:vertical;
+  padding:12px 14px;
+  border-radius:8px;
+  border:1px solid #e6e9ef;
+  background: #fff;
+  font-size:0.95rem;
+  color:#0f172a;
+  line-height:1.4;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+textarea:focus, input[type="text"]:focus {
+  outline:none;
+  border-color: rgba(37,99,235,0.85);
+  box-shadow: 0 6px 20px rgba(37,99,235,0.06);
 }
 
-button:hover {
-    background-color: #0056b3;
+/* Controls */
+.controls { display:flex; gap:10px; align-items:center; margin-top:8px; }
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:0.95rem;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+}
+.btn:active{ transform: translateY(1px); }
+.btn.secondary {
+  background:transparent;
+  color: var(--accent);
+  border: 1px solid rgba(37,99,235,0.12);
+  box-shadow:none;
 }
 
-.result-card {
-    background-color: #e8f0fe;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 8px;
-    border-left: 5px solid #007BFF;
-    width: 500px;
+/* Result area */
+.result {
+  margin-top:18px;
+  padding:14px;
+  border-radius:8px;
+  background: var(--soft);
+  border:1px solid rgba(37,99,235,0.06);
 }
+.result .score {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:6px;
+}
+.score .value {
+  font-size:1.6rem;
+  font-weight:700;
+  color:#0f172a;
+}
+.score .stars { font-size:1.25rem; color:#f59e0b; }
+
+/* Feedback & similarity */
+.result p { margin:6px 0; color:#0f172a; font-size:0.95rem; }
+.result .meta { color:var(--muted); font-size:0.87rem; margin-top:8px; }
+
+/* Error box */
+.error {
+  margin-top:12px;
+  padding:12px;
+  border-radius:8px;
+  background: #fff3f2;
+  border:1px solid rgba(239,68,68,0.08);
+  color: var(--danger);
+  font-weight:600;
+}
+
+/* Small screens */
+@media (max-width:640px) {
+  .header { flex-direction:column; align-items:flex-start; gap:6px; }
+  textarea { min-height:84px; }
+  .container { padding:12px; }
+}
+
+/* Utility */
+.small { font-size:0.85rem; color:var(--muted); }
+.center { text-align:center; }
