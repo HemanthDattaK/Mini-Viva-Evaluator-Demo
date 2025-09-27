@@ -7,8 +7,9 @@ Returns integer score 0..5 and similarity percent (interpretable).
 
 import requests
 import re
+import os
 
-HF_API_TOKEN = "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"
+HF_API_TOKEN = os.getenv("HF_API_TOKEN")  # Fetch token from environment variable
 MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 MODEL_ENDPOINT = f"https://api-inference.huggingface.co/models/{MODEL_ID}"
 HEADERS = {"Authorization": f"Bearer {HF_API_TOKEN}"}
@@ -158,4 +159,5 @@ class AnswerEvaluator:
 
         score = self._hf_score(sim)
         return score, self._feedback(score), round(sim * 100.0, 2)
+
 
