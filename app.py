@@ -1,4 +1,3 @@
-# mini_viva_local.py
 from flask import Flask, render_template, request
 from evaluator import AnswerEvaluator
 
@@ -7,18 +6,14 @@ evaluator = AnswerEvaluator()
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    reference_answer = ""
-    student_answer = ""
-    score = None
-    feedback = None
-    similarity = None
+    score = feedback = similarity = None
+    student_answer = reference_answer = ""
 
     if request.method == "POST":
-        reference_answer = request.form.get("reference_answer", "")
-        student_answer = request.form.get("student_answer", "")
+        reference_answer = request.form.get("reference_answer", "").strip()
+        student_answer = request.form.get("student_answer", "").strip()
 
-        score, feedback, debug = evaluator.evaluate(reference_answer, student_answer)
-        similarity = debug['similarity']
+        score, feedback, similarity = evaluator.evaluate(student_answer, reference_answer)
 
     return render_template(
         "index.html",
@@ -26,8 +21,8 @@ def home():
         student_answer=student_answer,
         score=score,
         feedback=feedback,
-        similarity=similarity
+        similarity=similarity,
     )
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)  # production-ready
